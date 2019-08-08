@@ -1,0 +1,32 @@
+language: java
+sudo: required
+jdk:
+  - oraclejdk8
+services:
+  - mysql
+env:
+  - ENGINE=lucee@5 DB=MySQL DBCLASS=org.gjt.mm.mysql.Driver
+  - ENGINE=adobe@2016 DB=MySQL DBCLASS=com.mysql.jdbc.Driver
+before_install:
+  - sudo apt-key adv --keyserver keys.gnupg.net --recv 6DA70622
+  - sudo echo "deb http://downloads.ortussolutions.com/debs/noarch /" | sudo tee -a /etc/apt/sources.list.d/commandbox.list
+install:
+  - sudo apt-get update && sudo apt-get --assume-yes install commandbox
+  - box version
+  - box install commandbox-cfconfig
+  - box install cfwheels-cli
+  - box install cfwheels/cfwheels
+  - box install lfabbric/cfwheels-defaultScope
+before_script:
+  - mysql -u root --password="" < artifacts/mysql-createdatabase.sql
+  - echo "show databases;" | mysql -u root --password=""
+  - box server start cfengine=$ENGINE port=8500
+  - if [[ "$DB" == "MySQL" ]]; then box cfconfig datasource save name=storetest database=storetest dbdriver=$DB class="$DBCLASS" host=127.0.0.1 port=3306 username=travis password="" blob=true clob=true; fi
+  - box server restart
+  - box cfconfig datasource list
+script: >
+  testResults="$(box wheels test type=defaultScope)";
+  echo "$testResults";
+  if ! grep -i "\Tests Complete: All Good!" <<< $testResults;  then exit 1; fi
+notifications:
+  email: false

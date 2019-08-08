@@ -1,0 +1,51 @@
+{
+    "name":"CFWheels Models Default Scope",
+    "version":"0.0.1",
+    "author":"Landon Fabbricino",
+    "location":"lfabbric/cfwheels-defaultScope#v0.0.1",
+    "directory":"/plugins/",
+    "createPackageDirectory":true,
+    "packageDirectory":"defaultScope",
+    "slug":"defaultScope",
+    "type":"cfwheels-plugins",
+    "shortDescription":"CFWheels 2.x Add default scope to models for FindAll method",
+    "keywords":[
+        "models",
+        "defaults",
+        "findAll",
+        "override"
+    ],
+    "private":false,
+    "homepage":"https://github.com/lfabbric/cfwheels-defaultScope",
+    "documentation":"https://github.com/lfabbric/cfwheels-defaultScope",
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/lfabbric/cfwheels-defaultScope"
+    },
+    "license":[
+        {
+            "type":"MIT",
+            "URL":"https://github.com/lfabbric/cfwheels-defaultScope/blob/master/LICENSE"
+        }
+    ],
+    "engines":[
+        {
+            "type":"adobe",
+            "version":">=2016"
+        },
+        {
+            "type":"lucee",
+            "version":">=5"
+        }
+    ],
+    "scripts":{
+        "postVersion":"package set location='lfabbric/cfwheels-defaultScope#v`package version`'",
+        "postPublish":"!git push --follow-tags",
+        "patch-release":"bump --patch && publish",
+        "minor-release":"bump --minor && publish",
+        "major-release":"bump --major && publish"
+    },
+    "ignore":[
+        "artifacts"
+    ]
+}
