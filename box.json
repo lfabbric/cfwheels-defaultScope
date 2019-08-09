@@ -1,8 +1,8 @@
 {
     "name":"CFWheels Models Default Scope",
-    "version":"0.0.11",
+    "version":"0.0.12",
     "author":"Landon Fabbricino",
-    "location":"lfabbric/cfwheels-defaultScope#v0.0.11",
+    "location":"lfabbric/cfwheels-defaultScope#v0.0.12",
     "directory":"/plugins/",
     "createPackageDirectory":true,
     "packageDirectory":"defaultScope",
