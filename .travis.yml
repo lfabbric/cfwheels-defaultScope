@@ -27,7 +27,6 @@ before_script:
   - if [[ "$DB" == "MySQL" ]]; then box cfconfig datasource save name=storetest database=store dbdriver=$DB class="$DBCLASS" host=127.0.0.1 port=3306 username=travis password="" blob=true clob=true; fi
   - box server restart
   - box cfconfig datasource list
-  - ls -la
 script: >
   testResults="$(box wheels test type=defaultScope)";
   echo "$testResults";
