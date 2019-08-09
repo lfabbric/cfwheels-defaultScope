@@ -22,6 +22,7 @@ install:
   - box install lfabbric/cfwheels-defaultScope
 before_script:
   - ls -la
+  - ls -la plugins
   - mysql -u root --password="" < plugins/defaultScope/artifacts/mysql-createdatabase.sql
   - echo "show databases;" | mysql -u root --password=""
   - box server start cfengine=$ENGINE port=8500
