@@ -21,11 +21,7 @@ install:
   - box install cfwheels/cfwheels
   - box install lfabbric/cfwheels-defaultScope
 before_script:
-  - ls -la
-  - ls -la plugins
-  - ls -la plugins/defaultScope
-  - ls -la plugins/defaultScope/artifacts
-  - mysql -u root --password="" < plugins/defaultScope/artifacts/mysql-createdatabase.sql
+  - mysql -u root --password="" < plugins/defaultScope/tests/resources/mysql-createdatabase.sql
   - echo "show databases;" | mysql -u root --password=""
   - box server start cfengine=$ENGINE port=8500
   - if [[ "$DB" == "MySQL" ]]; then box cfconfig datasource save name=storetest database=store dbdriver=$DB class="$DBCLASS" host=127.0.0.1 port=3306 username=travis password="" blob=true clob=true; fi
