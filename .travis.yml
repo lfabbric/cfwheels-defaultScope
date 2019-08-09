@@ -23,6 +23,8 @@ install:
 before_script:
   - ls -la
   - ls -la plugins
+  - ls -la plugins/defaultScope
+  - ls -la plugins/defaultScope/artifacts
   - mysql -u root --password="" < plugins/defaultScope/artifacts/mysql-createdatabase.sql
   - echo "show databases;" | mysql -u root --password=""
   - box server start cfengine=$ENGINE port=8500
