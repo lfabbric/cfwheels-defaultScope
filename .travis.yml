@@ -1,12 +1,13 @@
 language: java
 sudo: required
 jdk:
-  - oraclejdk9
+  - openjdk7
 services:
   - mysql
 env:
   - ENGINE=lucee@5 DB=MySQL DBCLASS=org.gjt.mm.mysql.Driver
   - ENGINE=adobe@2016 DB=MySQL DBCLASS=com.mysql.jdbc.Driver
+  - ENGINE=adobe@2018 DB=MySQL DBCLASS=com.mysql.jdbc.Driver
 before_install:
   - sudo apt-key adv --keyserver keys.gnupg.net --recv 6DA70622
   - sudo echo "deb http://downloads.ortussolutions.com/debs/noarch /" | sudo tee -a /etc/apt/sources.list.d/commandbox.list
@@ -20,6 +21,7 @@ install:
 before_script:
   - mysql -u root --password="" < artifacts/mysql-createdatabase.sql
   - echo "show databases;" | mysql -u root --password=""
+  - echo "ls -la /home/travis/build/lfabbric/cfwheels-defaultScope/"
   - box server start cfengine=$ENGINE port=8500
   - if [[ "$DB" == "MySQL" ]]; then box cfconfig datasource save name=storetest database=store dbdriver=$DB class="$DBCLASS" host=127.0.0.1 port=3306 username=travis password="" blob=true clob=true; fi
   - box server restart
