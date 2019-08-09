@@ -2,6 +2,8 @@ language: java
 sudo: required
 jdk:
   - oraclejdk9
+git:
+  clone: false
 services:
   - mysql
 env:
