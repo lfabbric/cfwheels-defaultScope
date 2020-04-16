@@ -20,6 +20,7 @@ install:
   - box install cfwheels-cli
   - box install cfwheels/cfwheels
   - box install lfabbric/cfwheels-defaultScope
+  - box wheels info
 before_script:
   - mysql -u root --password="" < plugins/defaultScope/tests/resources/mysql-createdatabase.sql
   - echo "show databases;" | mysql -u root --password=""
