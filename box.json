@@ -8,7 +8,7 @@
     "packageDirectory":"defaultScope",
     "slug":"defaultScope",
     "type":"cfwheels-plugins",
-    "shortDescription":"CFWheels 2.x Add default scope to models for FindAll method",
+    "shortDescription":"CFWheels 2.1+ Add default scope to models for FindAll method",
     "keywords":[
         "models",
         "defaults",
