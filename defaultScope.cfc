@@ -1,6 +1,6 @@
 component hint="cfwheels defaultScope support" output="false" mixin="global" {
     public function init() {
-        this.version = "2.0,2.0.1";
+        this.version = "2.1";
         return this;
     }
 

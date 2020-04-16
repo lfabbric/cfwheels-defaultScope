@@ -5,7 +5,7 @@ component extends="wheels.Test" {
         $previousDataSourceName = get("dataSourceName");
         $baseModelPath = application.wheels.modelPath;
         application.wheels.modelPath = application.wheels.rootPath & application.wheels.pluginPath & "/defaultScope/tests/_assets/models/";
-        set(dataSourceName="storetest");
+        set(dataSourceName="store");
         paymentsNotScopedModel = model("PaymentNotScoped").new();
         paymentsOrderScopedModel = model("PaymentOrderScoped").new();
     }
