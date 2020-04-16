@@ -49,6 +49,6 @@
         "artifacts"
     ],
     "dependencies":{
-        "cfwheels":"^2.0.1"
+        "cfwheels":"^2.1"
     }
 }
