@@ -31,6 +31,9 @@ Coldfusion
  - Lucee 5
  - Adobe Coldfusion 2016
 
+CFWheels
+ - 2.1.X
+
 ## Usage
 
 ### Model Setup
