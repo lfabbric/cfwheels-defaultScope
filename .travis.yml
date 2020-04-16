@@ -18,7 +18,7 @@ install:
   - box version
   - box install commandbox-cfconfig
   - box install cfwheels-cli
-  - box install cfwheels/cfwheels@2.1
+  - box install cfwheels/cfwheels#2.1
   - box install lfabbric/cfwheels-defaultScope
   - box wheels info
 before_script:
