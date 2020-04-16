@@ -1,4 +1,4 @@
-component extends="app.models.model" {
+component extends="wheels.Model" {
 	function config(){
 		table("orders");
 		defaultScope(
